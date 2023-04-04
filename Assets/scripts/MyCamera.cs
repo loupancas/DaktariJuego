@@ -1,28 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[RequiredComponent(typeof(Player))]
+
 public class MyCamera : MonoBehaviour
 {
    
-    [SerializeField] float _mouseSensitivity = 0f;
-    Player _inputController = null;
+    [SerializeField] Transform target;
+    Vector3 offset;
 
-    void Awake(){
-
-        _inputController = GetComponent<Player>();
+    private void Start()
+    {
+        offset = transform.position - target.position;
     }
 
-    void Update(){
-
-
+    private void fixedUpdate()
+    {
+        transform.position = target.transform.position + offset; // posicion la camara donde esta el pj + el offset
     }
 
-    void MouseCamera(){
 
-        vector2 input = _inputController.MouseInput();
-
-        transform.Rotate(Vector3.up* input.x *_mouseSensitivity* Time.deltatime);
-    }
-
+    //min 46
+  //Hola
 }
