@@ -8,24 +8,13 @@ namespace player.mov
     public class Player : MonoBehaviour
     {
         Rigidbody rigid;
-        [SerializeField] float speed =50;
+        [SerializeField] float speed =200;
 
         private void Awake()
         {
             rigid = GetComponent<Rigidbody>();
         }
 
-
-        void Start()
-        {
-
-        }
-
-       
-        void Update()
-        {
-
-        }
 
         private void FixedUpdate()
         {
@@ -34,6 +23,15 @@ namespace player.mov
         }
 
         //min 30
+        
+        public vector2 MousInput(){
+
+            float x= Input.GetAxis["Mouse X"];
+            float y= Input.GetAxis["Mouse Y"];
+
+            return new Vector2(x, y);
+
+        }
     }
 
 

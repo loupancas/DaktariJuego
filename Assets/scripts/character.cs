@@ -37,7 +37,7 @@ public class character : MonoBehaviour
 
         myrig.velocity = move * Time.deltaTime*speed; // se le pasa el move,modifica velocity del rb, su vector 
                                                 // time delta time solo depende del time y no de los frames
-                                                // velocity depende de las físicas de unity pero podemos modificarlo
+                                                // velocity depende de las fï¿½sicas de unity pero podemos modificarlo
           
     }
 }
