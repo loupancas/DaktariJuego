@@ -2,27 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Player))]
+
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] float _mouseSensitivity = 0f;
-    Player _inputController = null;
+    public GameObject jugador;
+    public GameObject referencia;
+    private Vector3 distancia;
 
-    void Awake(){
 
-        _inputController = GetComponent<Player>();
+void Start () {
+        distancia = transform.position - jugador.transform.position;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void Update(){
-        MouseCamera();
 
-    }
+void LateUpdate () {
+    distancia = Quaternion.AngleAxis(Input.GetAxis("Mouse X") * 2, Vector3.up) * distancia;
+    transform.position = jugador.transform.position +distancia;
+    transform.LookAt (jugador.transform.position);
 
-    void MouseCamera(){
+    Vector3 copiaRotacion = new Vector3(0, transform.eulerAngles.y, 0);
+    referencia.transform.eulerAngles= copiaRotacion;
 
-        Vector2 input = _inputController.MouseInput();
-
-        transform.Rotate(Vector3.up* input.x *_mouseSensitivity* Time.deltatime);
-    }
+}
 }
