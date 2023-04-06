@@ -7,9 +7,12 @@ using UnityEngine;
     public class Player : MonoBehaviour
 
     {
-            public float moveSpeed = 5f;
-    public float jumpForce = 2f;
+    public float moveSpeed = 5f;
+    public float jumpForce = 7f;
     private bool isGrounded;
+
+    [SerializeField] private ParticleSystem particulas;
+
 
     void Update()
     {
@@ -44,6 +47,7 @@ using UnityEngine;
         {
             GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             isGrounded = false;
+            particulas.Play();
         }
     }
         
