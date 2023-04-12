@@ -29,7 +29,7 @@ public class Shot : MonoBehaviour
 
                 shotRateTime = Time.time + shotRateTime;
 
-                Destroy(newPotion,2);
+                Destroy(newPotion,1);
 
             }
 

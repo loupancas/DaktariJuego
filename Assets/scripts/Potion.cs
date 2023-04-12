@@ -10,14 +10,14 @@ public class Potion : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-           
+            
             Destroy(collision.gameObject);
             
         }
         
         if (collision.gameObject.CompareTag("Ciudadano"))
         {
-           
+            
         }
 
 
