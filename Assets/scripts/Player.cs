@@ -10,6 +10,7 @@ using UnityEngine;
     public float moveSpeed = 5f;
     public float jumpForce = 7f;
     private bool isGrounded;
+    public CharacterController controller;
 
     [SerializeField] private ParticleSystem particulas;
 
@@ -20,7 +21,7 @@ using UnityEngine;
         float vertical = Input.GetAxis("Vertical");
 
         // Cambio de los valores de entrada de movimiento a WASD
-        if (Input.GetKey(KeyCode.A))
+        /*if (Input.GetKey(KeyCode.A))
         {
             horizontal = -1f;
         }
@@ -35,11 +36,15 @@ using UnityEngine;
         if (Input.GetKey(KeyCode.S))
         {
             vertical = -1f;
-        }
+        }*/
 
-        Vector3 movement = new Vector3(horizontal, 0f, vertical);
+        Vector3 movement = new Vector3(horizontal, 0f, vertical).normalized;
         transform.Translate(movement * moveSpeed * Time.deltaTime);
-
+       
+        if(movement.magnitude >= 0.1f){
+            
+            controller.Move(movement*moveSpeed*Time.deltaTime);
+        }
 
 
         // Cambio de la tecla de salto a espacio
