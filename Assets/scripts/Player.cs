@@ -29,7 +29,7 @@ using UnityEngine;
 
     void Update()
     {
-
+        
         isGrounded = Physics.CheckSphere(groundCheck.position,sphereRadius,groundMask);
 
         if(isGrounded && velocity.y < 0){
@@ -48,7 +48,7 @@ using UnityEngine;
         if(Input.GetKeyDown(KeyCode.Space) && isGrounded){
 
             velocity.y = Mathf.Sqrt(jumpHeight * -2.5f * gravity);
-
+            particulas.Play();
         }
         velocity.y += gravity*Time.deltaTime;
         controller.Move(velocity*Time.deltaTime);

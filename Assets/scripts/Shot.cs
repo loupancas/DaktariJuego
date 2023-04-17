@@ -20,7 +20,7 @@ public class Shot : MonoBehaviour
     {
         if(Input.GetButtonDown("Fire1"))
         {
-            if(Time.time>shotRateTime)
+            //if(Time.time>shotRateTime)
             {
                 GameObject newPotion;
 
