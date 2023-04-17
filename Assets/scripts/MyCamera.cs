@@ -19,6 +19,5 @@ public class MyCamera : MonoBehaviour
     }
 
 
-    //min 46
-  //Hola
+    
 }
