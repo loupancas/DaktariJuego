@@ -26,7 +26,11 @@ using UnityEngine;
 
     [SerializeField] private ParticleSystem particulas;
 
+    void Start(){
 
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
     void Update()
     {
         
